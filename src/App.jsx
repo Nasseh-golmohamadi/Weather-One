@@ -4,7 +4,7 @@ import './App.css'
 import WeatherInfs from './components/WeatherInfs';
 
 function App() {
-const [weatherApi, setWeatherApi]=useState([]);
+const [weatherApi, setWeatherApi]=useState();
   return (
     <>
       <EnterCity weatherApi={weatherApi} setWeatherApi={setWeatherApi} />

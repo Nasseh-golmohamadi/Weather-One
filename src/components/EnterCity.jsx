@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const enterCity = ({weatherApi, setWeatherApi}) => {
-    const [inputValue, setInputValue] = useState("Sanandaj");
+    const [inputValue, setInputValue] = useState("tehran");
     const api_key="10e500a2733b2361f1e74acf08b3cccc";
 
     useEffect(()=> {

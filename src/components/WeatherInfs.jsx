@@ -1,25 +1,31 @@
 import React from 'react'
 
-const WeatherInfs = ({weatherApi}) => {
-    const imgUrl="http://openweathermap.org/img/wn/";
+const WeatherInfs = ({ weatherApi }) => {
+
+    if (!weatherApi || !weatherApi.city || !weatherApi.list) {
+        return <p>Loading...</p>;
+    }
+
     console.log(weatherApi);
-    
-  return (
-    <div>
-        <ul>
-            <li>
-                {weatherApi?.city?.name}
-            </li>
-            <li>
-                  {Math.floor(weatherApi?.list?.[0]?.main?.temp ?? 0)}°
-            </li>
-            <li>
-                <img src={`${imgUrl}${weatherApi?.list?.[0]?.weather?.icon}@2x.png`} alt="" />
-            </li>
-        </ul>
-        
-    </div>
-  )
+
+    return (
+        <div>
+            <ul>
+                <li>
+                    {weatherApi.city.name}
+                </li>
+                <li>
+                    {Math.floor(weatherApi.list[0].main.temp_max)}°
+                </li>
+                <li>
+                    {Math.floor(weatherApi.list[0].main.temp_min)}°
+                </li>
+                <li>
+                    <img src={`http://openweathermap.org/img/wn/${weatherApi?.list[0].weather[0].icon}@2x.png`} alt="" />
+                </li>
+            </ul>
+        </div>
+    )
 }
 
 export default WeatherInfs
